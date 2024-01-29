@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  h1{
+    font-size: 3em;
+  }
+  p{
+    font-size: 2em;
+  }
+     body {
+    width: 500px;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center;
+    border:#777;
+  }
+
+    div.elem-group {
+      margin: 2px 0;
+    }
+
+  div.elem-group.inlined {
+    width: 49%;
+    display: inline-block;
+    float: left;
+    margin-left: 1%;
+  }
+
+  label {
+    display: block;
+    font-family: 'Nanum Gothic';
+    padding-bottom: 2px;
+    font-size: 1.25em;
+  }
+
+  input, select, textarea {
+    border-radius: 5px;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    font-family: 'Nanum Gothic';
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+  }
+
+  div.elem-group.inlined input {
+    width: 95%;
+    display: inline-block;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    height: 250px;
+  }
+
+
+  hr {
+    border: 2px line #ccc;
+  }
+
+  button {
+    height: 40px;
+    background:cyan;
+    border:2px solid black;
+    color: white;
+    font-size: 1.25em;
+    font-family: 'Nanum Gothic';
+    border-radius: 20px;
+    cursor: pointer;
+    width: 50%;
+  }
+
+  button:hover {
+    border: 2px solid black;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  body {
+    background-image: url('images.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  select{
+    height: 40px;
+    font-size: 1em;
+  }
+
+</style>
+</head>
+<body>
+
+    <h1 style="color:blue;">Expense Tracker</h1> 
+    <p style="color:Red;">Track your expenses here.</p>
+<hr></hr>
+
+    <div class="elem-group">
+      <form action="/register" method="post" >
+    <label style="color:blue "for="amount">choose expense amount:</label>
+    <br>
+    <input type="number" name="amount" id="amount" required>
+    </br>
+    </div>
+    <div class="elem-group">
+    <label style="color:blue " for="description" >Choose description:</label>
+    <br>
+    <select id="description">
+        <option value="movie">movie</option>
+        <option value="food">food</option>
+        <option value="vacation">vacation</option>
+        <option value="health">health</option>
+</select>
+</br>
+</div>
+<div>
+    <label style="color:blue "for="catagory">Choose a catagory:</label>
+<br>
+<select id="catagory">
+    <option value="entertainment">entertainment</option>
+    <option value="groceries">groceries</option>
+    <option value="outing">outing</option>
+    <option value="health">health</option>
+</select>
+</br>
+
+
+<button style="color:black "type="submit"  onclick = "test()">Add Expense</button>
+</form>
+</div>
+</body>
+</head>
+</html>

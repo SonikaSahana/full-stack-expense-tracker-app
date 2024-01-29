@@ -1,15 +1,15 @@
 
 const express = require('express');
-const adminController = require('../controllers/booking');
+const adminController = require('../controllers/expenses');
 
 const router = express.Router();
 
-router.get('/',adminController.getAppointmentPage)
+router.get('/',adminController.getExpensesPage)
 
 router.post('/register', adminController.postRegister);
-router.get('/bookingSuccess', adminController.getBookingSuccess);
+router.get('/successfullyadded', adminController.getSuccess);
 
-router.get('/appointments', adminController.getAppointments);
+router.get('/expenses', adminController.getExpenses);
    
 
 

@@ -13,10 +13,10 @@ window.addEventListener('DOMContentLoaded', () => {
    await axios.get('http://localhost:4000/user/get-users')
       .then(responses => {
         console.log(responses);
-        const appointments = responses.data.allUsers;
-        console.log(appointments[0])
-        for (let i = 0; i < appointments.length; i++) {
-          addAppointmentToList(appointments[i]);
+        const expenses = responses.data.allUsers;
+        console.log(expenses[0])
+        for (let i = 0; i < expenses.length; i++) {
+          addExpensesToList(expenses[i]);
         }
       })
       .catch(error => {
@@ -24,14 +24,16 @@ window.addEventListener('DOMContentLoaded', () => {
       });
   }
   
-  function addAppointmentToList(appointment) {
-    const { name, email, phone } = appointment;
+  function addExpensesToList(expense) {
+    const { amount, description, catagory } = expense;
   
     const liEle = document.getElementById('items');
     const li = document.createElement('li');
-    li.appendChild(document.createTextNode(name));
+    li.appendChild(document.createTextNode(amount));
     li.appendChild(document.createTextNode(" "));
-    li.appendChild(document.createTextNode(email));
+    li.appendChild(document.createTextNode(description));
+    li.appendChild(document.createTextNode(" "));
+    li.appendChild(document.createTextNode(catagory));
     li.appendChild(document.createTextNode(" "));
    
    
@@ -56,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
     function removeAppointment() {
 
-     let id = appointment.id;
+     let id = expense.id;
     
       axios.delete('http://localhost:4000/user/delete-user/'+`${id}`)
        .then(response => console.log(response))
@@ -64,15 +66,15 @@ window.addEventListener('DOMContentLoaded', () => {
           liEle.removeChild(li);
     }
   
-    edit.addEventListener('click', editAppointment);
+    edit.addEventListener('click', editExpenses);
   
-    function editAppointment() {
+    function editExpenses() {
 
-        let id = appointment.id;
+        let id = expense.id;
         
-      document.getElementById('name').value = name;
-      document.getElementById('mail').value = email;
-      document.getElementById('teln').value = phone;
+      document.getElementById('amount').value = amount;
+      document.getElementById('description').value = description;
+      document.getElementById('catagory').value = catagory;
 
       axios.delete('http://localhost:4000/user/delete-user/'+`${id}`)
        .then(response => console.log(response))
